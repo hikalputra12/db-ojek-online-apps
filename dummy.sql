@@ -1,6 +1,3 @@
---masukkan data dummy--
-
---data dummy user--
 INSERT INTO users (id, name, email, password, role, created_at, updated_at) VALUES
 (1, 'Admin System', 'admin@mail.com', 'admin123', 'admin', '2025-12-06 17:32:12.0164', '2025-12-06 17:32:12.0164'),
 (2, 'Budi Santoso', 'budi@mail.com', 'pass123', 'customer', '2025-12-06 17:32:12.0164', '2025-12-06 17:32:12.0164'),
@@ -23,8 +20,6 @@ INSERT INTO users (id, name, email, password, role, created_at, updated_at) VALU
 (19, 'Driver I', 'driverI@mail.com', 'driver123', 'driver', '2025-12-06 17:32:12.0164', '2025-12-06 17:32:12.0164'),
 (20, 'Driver J', 'driverJ@mail.com', 'driver123', 'driver', '2025-12-06 17:32:12.0164', '2025-12-06 17:32:12.0164');
 
---data dummy tabel customer--
-
 INSERT INTO customer (customer_id, address, phone) VALUES
 (2, 'Jl. Merpati No.10', '0812341111'),
 (3, 'Jl. Rajawali No.21', '0812342222'),
@@ -36,8 +31,7 @@ INSERT INTO customer (customer_id, address, phone) VALUES
 (9, 'Jl. Dahlia No.30', '0812348888'),
 (10, 'Jl. Anggrek No.12', '0812349999');
 
---data dummy driver--
-INSERT INTO driver(driver_id, phone, vehicle_number, vehicle_type) VALUES
+INSERT INTO driver (driver_id, phone, vehicle_number, vehicle_type) VALUES
 (11, '0822110001', 'DD1234AA', 'Motor'),
 (12, '0822110002', 'DD2234AB', 'Motor'),
 (13, '0822110003', 'DD3234AC', 'Motor'),
@@ -49,51 +43,58 @@ INSERT INTO driver(driver_id, phone, vehicle_number, vehicle_type) VALUES
 (19, '0822110009', 'DD9234AI', 'Mobil'),
 (20, '0822110010', 'DD1034AJ', 'Motor');
 
---data dummy user_activity_log--
 INSERT INTO user_activity_log (activity_id, user_id, activity_type, activity_time) VALUES
 (1, 2, 'login',  '2025-12-06 17:19:00'),
 (2, 2, 'logout', '2025-12-06 22:42:00'),
 (3, 3, 'login',  '2025-12-06 17:18:00'),
-
 (5, 4, 'login',  '2025-12-06 17:16:00'),
 (6, 4, 'logout', '2025-12-07 01:15:00'),
-
 (7, 5, 'login',  '2025-12-06 17:20:00'),
-
 (9, 6, 'login',  '2025-12-06 17:21:00'),
 (10, 6, 'logout','2025-12-07 04:05:00'),
-
 (11, 7, 'login', '2025-12-06 17:18:00'),
-
 (13, 8, 'login', '2025-12-06 17:17:00'),
-
 (15, 9, 'login', '2025-12-06 17:16:00'),
 (16, 9, 'logout','2025-12-07 06:25:00'),
-
 (17, 11, 'login', '2025-12-06 17:16:00'),
-
 (19, 12, 'login', '2025-12-06 17:20:00'),
 (20, 12, 'logout','2025-12-07 06:20:00'),
-
 (21, 13, 'login', '2025-12-06 17:19:00'),
 (22, 13, 'logout','2025-12-07 09:20:00'),
-
 (23, 14, 'login', '2025-12-06 17:15:00'),
-
 (25, 15, 'login', '2025-12-06 17:14:00'),
 (26, 15, 'logout','2025-12-06 13:55:00'),
-
 (27, 16, 'login', '2025-12-06 17:13:00'),
 (28, 16, 'logout','2025-12-07 06:15:00'),
-
 (29, 17, 'login', '2025-12-06 17:12:00'),
 (30, 17, 'logout','2025-12-06 14:20:00'),
-
-(31, 18, 'login', '2025-12-06 17:15:00'),
-
+(31, 18, 'login', '2025-12-06 17:15:00');
 
 
---data dummy orders--
+INSERT INTO travel_history (travel_history_id, user_id, address_id, timestamp) VALUES
+(1, 1, 2, '2025-12-06 17:34:57.961355'),
+(2, 2, 3, '2025-12-06 17:34:57.961355'),
+(3, 3, 4, '2025-12-06 17:34:57.961355'),
+(4, 4, 5, '2025-12-06 17:34:57.961355'),
+(5, 5, 6, '2025-12-06 17:34:57.961355'),
+(6, 6, 7, '2025-12-06 17:34:57.961355'),
+(7, 7, 8, '2025-12-06 17:34:57.961355'),
+(8, 8, 9, '2025-12-06 17:34:57.961355'),
+(9, 9, 2, '2025-12-06 17:34:57.961355'),
+(10, 10, 3, '2025-12-06 17:34:57.961355');
+
+INSERT INTO driver_monthly_history (driver_monthly_history_id, driver_id, month, year, total_orders) VALUES
+(1, 11, 1, 2025, 15),
+(2, 12, 1, 2025, 13),
+(3, 13, 1, 2025, 12),
+(4, 14, 1, 2025, 11),
+(5, 15, 1, 2025, 18),
+(6, 16, 1, 2025, 16),
+(7, 17, 1, 2025, 10),
+(8, 18, 1, 2025, 14),
+(9, 19, 1, 2025, 9),
+(10, 20, 1, 2025, 20);
+
 INSERT INTO orders (
     orders_id, customer_id, driver_id, start_location, end_location,
     distance_km, price, status, created_at, updated_at
@@ -147,34 +148,15 @@ INSERT INTO orders (
 (47,8,17,'Jl. Cemara','RS Wahidin',3.9,8000,'completed','2025-12-06 05:45:00','2025-12-06 06:05:00'),
 (48,9,18,'Jl. Dahlia','UNHAS',10.3,21000,'completed','2025-12-06 06:30:00','2025-12-06 06:55:00'),
 (49,2,19,'Mall Ratu Indah','Trans Studio Mall',4,9000,'completed','2025-12-06 07:15:00','2025-12-06 07:35:00'),
-(50,3,20,'Jl. Rajawali','Kampus UMI',5.2,11000,'completed','2025-12-06 08:40:00','2025-12-06 09:00:00');
+(50,3,20,'Jl. Rajawali','Kampus UMI',5.2,11000,'completed','2025-12-06 08:40:00','2025-12-06 09:00:00')
+(51, 2, 11, 'Jl. Merpati', 'Mall Ratu Indah', 4.1, 9000, 'completed', '2025-01-03 09:12:00', '2025-01-03 09:30:00'),
+(52, 3, 12, 'Jl. Rajawali', 'UNHAS', 7.2, 15000, 'completed', '2025-01-05 10:20:00', '2025-01-05 10:45:00'),
+(53, 4, 13, 'Jl. Garuda', 'Bandara', 22.0, 45000, 'completed', '2025-01-07 11:40:00', '2025-01-07 12:05:00'),
+(54, 5, 14, 'Jl. Mawar', 'Pantai Losari', 6.5, 14000, 'completed', '2025-01-10 14:10:00', '2025-01-10 14:32:00'),
+(55, 6, 15, 'Jl. Kenanga', 'Trans Studio Mall', 9.8, 20000, 'completed', '2025-01-12 15:00:00', '2025-01-12 15:25:00'),
+(56, 7, 16, 'Jl. Melati', 'RS Wahidin', 4.2, 9000, 'completed', '2025-01-15 08:22:00', '2025-01-15 08:40:00'),
+(57, 8, 17, 'Jl. Cemara', 'Kampus UNM', 5.4, 12000, 'completed', '2025-01-17 09:15:00', '2025-01-17 09:33:00'),
+(58, 9, 18, 'Jl. Dahlia', 'Pelabuhan Makassar', 12.1, 26000, 'completed', '2025-01-20 13:05:00', '2025-01-20 13:30:00'),
+(59, 2, 19, 'Mall Panakkukang', 'Jl. Merpati', 6.5, 14000, 'completed', '2025-01-23 16:40:00', '2025-01-23 17:05:00'),
+(60, 3, 20, 'Jl. Rajawali', 'Mall Pettarani', 5.0, 11000, 'completed', '2025-01-25 19:20:00', '2025-01-25 19:40:00');
 
-
---data dummy travel_history--
-INSERT INTO travel_history (travel_history_id, user_id, address_id, timestamp)
-VALUES
-(1, 1, 2, '2025-12-06 17:34:57.961355'),
-(2, 2, 3, '2025-12-06 17:34:57.961355'),
-(3, 3, 4, '2025-12-06 17:34:57.961355'),
-(4, 4, 5, '2025-12-06 17:34:57.961355'),
-(5, 5, 6, '2025-12-06 17:34:57.961355'),
-(6, 6, 7, '2025-12-06 17:34:57.961355'),
-(7, 7, 8, '2025-12-06 17:34:57.961355'),
-(8, 8, 9, '2025-12-06 17:34:57.961355'),
-(9, 9, 2, '2025-12-06 17:34:57.961355'),
-(10, 10, 3, '2025-12-06 17:34:57.961355');
-
-
---data dummy drivers_monthly_history--
-INSERT INTO driver_monthly_history (driver_monthly_history_id, driver_id, month, year, total_orders)
-VALUES
-(1, 11, 1, 2025, 15),
-(2, 12, 1, 2025, 13),
-(3, 13, 1, 2025, 12),
-(4, 14, 1, 2025, 11),
-(5, 15, 1, 2025, 18),
-(6, 16, 1, 2025, 16),
-(7, 17, 1, 2025, 10),
-(8, 18, 1, 2025, 14),
-(9, 19, 1, 2025, 9),
-(10, 20, 1, 2025, 20);
